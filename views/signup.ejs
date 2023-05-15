@@ -1,0 +1,39 @@
+<%- include("partials/header") -%>
+
+<section class="signin-page">
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 signin-content">
+        <h1 class="text-center mb-4">Sign Up</h1>
+        <form method="post" action="/signup">
+          <div class="mb-3">
+            <label for="first-name" class="form-label signin-form">First Name</label>
+            <input type="text" class="form-control signin-control" id="firstName" name="firstName" required>
+          </div>
+          <div class="mb-3">
+            <label for="last-name" class="form-label signin-form">Last Name</label>
+            <input type="text" class="form-control signin-control" id="lastName" name="lastName" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label signin-form">Email</label>
+            <input type="email" class="form-control signin-control" id="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="phoneNumber" class="form-label signin-form">Mobile Number</label>
+            <input type="number" class="form-control signin-control" id="phoneNumber" name="phoneNumber" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label signin-form">Password</label>
+            <input type="password" class="form-control signin-control" id="password" name="password" required>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary signin-button">Sign Up</button>
+          </div>
+          <a class="text-center mt-3 register-link" href="./signin">Already have an account? Log in here</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+  <%- include("partials/footer") -%>

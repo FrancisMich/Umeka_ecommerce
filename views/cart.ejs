@@ -1,0 +1,120 @@
+<%- include('partials/header') -%>
+
+<section id="Shopping">
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Our Products</h1>
+        <div class="row">
+          <div class="col-md-8">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <form action="/products" method="post" enctype="multipart/form-data">
+              <tbody>
+                <tr>
+                  <td>                   
+                     <div class="media">
+                      <img src="./img/supaset_bag.png" class="mr-3" alt="...">
+                      <div class="media-body">
+                        <h5 class="mt-0">Supaset</h5>
+                        <!-- <p>ELEPHANT SUPASET is specially formulated to satisfy all the requirements of the sandcrete block and precast concrete segment of the Nigerian built industry.</p> -->
+                      </div>
+                     </div>
+                  </td>
+                  <td class="price-list">N4,000</td>
+                  <td>
+                    <div class="input-group">
+                      <!-- <button class="btn btn-outline-secondary" type="button" id="button-minus">-</button> -->
+                      <input type="number" class="form-control text-center" value="1" aria-label="quantity">
+                      <button class="btn btn-outline-secondary" type="button" id="button-plus">+</button>
+                    </div>
+                  </td>
+                  <td class="price-list">N4,000,000</td>
+                  <td>
+                    <button type="button" class="close fa-regular fa-square-check" aria-label="Close">
+                    </button>
+                  </td>
+                </tr>
+                <% products.forEach(function(product) { %>  
+                <tr>
+                  <td>
+                    <div class="media">
+                      <img src="/images/<%=product.productImage%>" class="mr-3" alt="<%= product.productName %>" />
+                      <%= console.log(product.productImage) %>
+
+                      <div class="media-body">
+                        <h5 class="mt-0"><%= product.productName %></h5>
+                        <!-- <p><%= product.description %></p> -->
+                      </div>
+                    </div>
+                  </td>
+                  <td class="price-list"><%= product.productPrice %></td>
+                  <td>
+                    <div class="input-group">
+                      <!-- <button class="btn btn-outline-secondary" type="button" id="button-minus">-</button> -->
+                      <input type="number" class="form-control text-center" value="2" aria-label="quantity">
+                      <button class="btn btn-outline-secondary" type="button" id="button-plus">+</button>
+                    </div>
+                  </td>
+                  <td class="price-list">N4,000,000</td>
+                  <td>
+                    <button type="button" class="close fa-regular fa-square-check" aria-label="Close">
+                </button>
+                  </td>
+                </tr>
+                <% }); %>
+              </tbody>
+            </form>
+            </table>
+          </div>
+
+
+                <div class="col-md-4 " id="Payment">
+                    <h4>Payment Information</h4>
+                    
+                    <form>
+                      <div class="mb-3">
+                        <label for="card-number" class="form-label">Card Number</label>
+                        <input type="text" class="form-control" id="card-number" name="card-number" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="card-holder" class="form-label">Cardholder Name</label>
+                        <input type="text" class="form-control" id="card-holder" name="card-holder" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="card-expiration" class="form-label">Expiration Date</label>
+                        <input type="text" class="form-control" id="card-expiration" name="card-expiration" placeholder="MM/YY" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="card-cvc" class="form-label">Cvv</label>
+                        <input type="text" class="form-control" id="card-cvc" name="card-cvv" required>
+                      </div>
+                      <br>
+                      <h5 class="card-title">Order Summary</h5>
+                      <hr>
+                    
+                      <div class="text-end">
+                        <p class="mb-1">Product name: N4,000,000</p>
+                       <br>
+                        <h5>Total: N4,000,000</h5>
+                      </div>
+                  
+                  <div class="text-end mt-3">
+                    <a href="#" class="btn btn-success">Checkout</a>
+                    <br>
+                    <a href="#" class="btn btn-outline-success">Pay with bank transfer instead</a>
+                </div>
+            </div>
+                  </div>
+                  <hr>
+                    </form>
+                  </div>
+                </div>
+  </section>
+                <%- include('partials/footer') -%>
