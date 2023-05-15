@@ -1,16 +1,17 @@
 const express = require('express');
-const multer = require('multer');
+var multer = require('multer');
 const Product = require('../models/productModel');
 
-const storageEngine = multer.diskStorage({
-    destination: "images",
-    filename: (req, file, cb) => {
-    cb(null, `${Date.now()}--${file.originalname}`);
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/uploads');
     },
-    });
-    
-const upload = multer({storage: storageEngine, 
-    limits: { fileSize: 1000000 }});
+    filename: (req, file, cb) => {
+        console.log(file);
+        cb(null, Date.now() + '-' + file.originalname)
+    }
+});
+var upload = multer({storage: storage});
 
 const router = express.Router();
 
@@ -25,12 +26,12 @@ router.get('/admin', function (req, res) {
 
 router.post('/products', upload.single('image'), async function(req, res) {
     try {
-      const { productName, productPrice, productImage } = req.body;
+      const { productName, productPrice } = req.body;
   
       const newProduct = new Product({
         productName,
         productPrice,
-        productImage
+        productImage: req.file.filename
       });
   
       await newProduct.save();
