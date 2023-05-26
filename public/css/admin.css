@@ -1,4 +1,60 @@
-.admin {
+  /* Header */
+  .navbar {
+    background-color: #46295a;
+}
+
+/* Product Update Section */
+.product-update {
+    margin-top: 40px;
+}
+
+.product-update h1 {
+    color: #46295a;
+    margin-bottom: 20px;
+}
+  .product-image {
+        display: block;
+        max-width: 70px;
+}
+.form-group {
+padding: 3px;
+}
+
+/* Daily Quote Section */
+.dailyQuote {
+    margin-top: 10px;
+    background-color: #f8f9fa;
     padding: 5px;
-    background-color: #000;
+}
+
+.dailyQuote label {
+    color: #46295a;
+    font-weight: bold;
+}
+
+.dailyQuote textarea {
+    width: 100%;
+    resize: none;
+}
+
+/* Responsive Styling */
+@media (max-width: 767px) {
+    .product-update,
+    .dailyQuote {
+        margin-top: 20px;
+    }
+
+    .product-update h1,
+    .dailyQuote label {
+        text-align: center;
+    }
+      .product-update .btn {
+        display: block;
+        padding: 2px 10px ;
+        margin-bottom: 7px;
+    } 
+
+    .dailyQuote textarea {
+        min-height: 100px;
+    }
 }

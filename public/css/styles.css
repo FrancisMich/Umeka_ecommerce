@@ -1257,6 +1257,13 @@ button[aria-label="Close"] {
   background-color: #46295a;
   color: #fff;
 }
+ /* Hide the increment and decrement arrows */
+ input[type="number"]::-webkit-inner-spin-button,
+ input[type="number"]::-webkit-outer-spin-button {
+   -webkit-appearance: none;
+   appearance: none;
+   margin: 0;
+ }
 
 /* truck design page */
 
@@ -1351,3 +1358,15 @@ button[aria-label="Close"] {
 }
 
 /* contact page end */
+
+/* check out quick style */
+
+.checkout {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 21px 0;
+  
+}
+
+/* checkout quick style end */

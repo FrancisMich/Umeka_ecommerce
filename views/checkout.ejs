@@ -1,0 +1,50 @@
+<%- include('partials/header') -%>
+
+<section class="checkout">
+
+<div class="col-md-4 " id="Payment">        
+    <h4>Payment Information</h4>
+    
+    <form>
+      <div class="mb-3">
+        <label for="card-number" class="form-label">Card Number</label>
+        <input type="text" class="form-control" id="card-number" name="card-number" required>
+      </div>
+      <div class="mb-3">
+        <label for="card-holder" class="form-label">Cardholder Name</label>
+        <input type="text" class="form-control" id="card-holder" name="card-holder" required>
+      </div>
+      <div class="mb-3">
+        <label for="card-expiration" class="form-label">Expiration Date</label>
+        <input type="text" class="form-control" id="card-expiration" name="card-expiration" placeholder="MM/YY" required>
+      </div>
+      <div class="mb-3">
+        <label for="card-cvc" class="form-label">Cvv</label>
+        <input type="text" class="form-control" id="card-cvc" name="card-cvv" required>
+      </div>
+      <br>
+      <h5 class="card-title">Order Summary</h5>
+      <hr>
+    
+      <div class="text-end">
+        <p class="mb-1">Product name: N4,000,000</p>
+       <br>
+        <h5>Total: N4,000,000</h5>
+      </div>
+  
+  <div class="text-end mt-3">
+    <a href="#" class="btn btn-success mb-2">Pay Now</a>
+    <br>
+    <a href="#" class="btn btn-outline-success">Pay with bank transfer instead</a>
+    <!-- <div class="button-container">
+      <a href="/logout" class="btn btn-primary me-md-2 btn-danger">logout</a>
+    </div> --> 
+</div>
+</div>
+  </div>
+  <hr>
+    </form>
+  </div>
+</div>
+</section>
+<%- include('partials/footer') -%>

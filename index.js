@@ -11,11 +11,16 @@ const signupRoutes = require('./routes/signupRoutes');
 const signinRoutes = require('./routes/siginRoutes');
 const mainRoute = require('./routes/mainRoute');
 const adminRoute = require('./routes/adminRoute');
+const cartRoute = require('./routes/cartRoute');
+const methodOverride = require('method-override');
+
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
+
+app.use(methodOverride('_method'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -40,23 +45,21 @@ app.use(signinRoutes);
 
 app.use(adminRoute);
 
-app.get('/cart', function (req, res) {
-    Product.find()
-      .then(products => {
-        res.render('cart', { products });
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json({ error: 'Internal Server Error' });
-      });
+app.use(cartRoute)
+
+app.get('/logout', function (req, res, next) {
+  req.logout(function (err) {
+    if (err) { return next(err); }
+    res.redirect('/main');
   });
-  
+});
+
 app.get('/truck', function (req, res) {
     res.render('truck')
 });
 
-app.get('/shop', function (req, res) {
-    res.render('shop')
+app.get('/checkout', function (req, res) {
+    res.render('checkout')
 });
 
 app.get('/about', function (req, res) {
