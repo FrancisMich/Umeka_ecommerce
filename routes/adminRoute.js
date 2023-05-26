@@ -1,7 +1,6 @@
 const express = require('express');
 var multer = require('multer');
 const Product = require('../models/productModel');
-const Quote = require('../models/qouteModel');
 const methodOverride = require('method-override');
 
 var storage = multer.diskStorage({
@@ -60,23 +59,6 @@ router.post('/products', upload.single('image'), async function(req, res) {
         res.redirect('/admin');
       });
   });
-  
-  
-  
-  // POST request to update the quote
-  // router.post('/quotes', (req, res) => {
-  //   const newQuote = req.body.quote;
-  
-  //   Quote.findOneAndUpdate({}, { quote: newQuote }, { new: true })
-  //     .then(updatedQuote => {
-  //       console.log(updatedQuote);
-  //       res.redirect('/admin');
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //       res.status(500).send('Error updating quote');
-  //     });
-  // });
   
   
 module.exports = router;
